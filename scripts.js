@@ -260,11 +260,16 @@ function renderCards() {
      */
 
     html += "<div class='restaurant-card'>";
-    html += "<img src='" + r.imageUrl + "' alt='" + r.name;
+    html +=
+      "<img src='" +
+      r.imageUrl +
+      "' alt='" +
+      r.name +
+      "' onerror=\"this.style.display='none'\">";
     html += "<h3>" + r.name + "</h3>" + "<div class='info-row'>";
     html += "<span>⭐ " + r.rating + "</span>";
-    html += "<span>(" + r.reviewCount + " reviews)</span>";
-    html += "<span>" + r.priceRange + "</span>";
+    html += "<span> (" + r.reviewCount + " reviews)</span>";
+    if (r.priceRange) html += "<span>" + r.priceRange + "</span>";
     if (r.isOpenNow === true) html += "<span style='color:green'>Open</span>";
     if (r.isOpenNow === false) html += "<span style='color:#999'>Closed</span>";
     html += "</div>";
